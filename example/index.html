@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/png" />
+    <meta name="description" content="The Home Page" />
+    <title>Example</title>
+  </head>
+  <body>
+    <h1 id="heading">Home</h1>
+
+    <div id="cap"></div>
+  </body>
+  <script defer type="module">
+    const cap = document.getElementById("cap");
+    for (let i = 0; 180 > i; i++) {
+      const a = document.createElement("a");
+      const b = document.createElement("br");
+      a.id = `class${i}`;
+      a.href = "/example/next.html";
+      a.innerText = `Observer Man ${i}`;
+      cap.appendChild(a);
+      cap.appendChild(b);
+    }
+    import { sleeq } from "../dist/index.js";
+    (async () => {
+      await sleeq({
+        mode: "scan",
+        log: true,
+        cacheTime: 100000,
+        purgeCacheOnStartup: true,
+      });
+    })();
+  </script>
+</html>

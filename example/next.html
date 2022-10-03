@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/png" />
+    <meta name="description" content="The Home Page" />
+    <title>Next</title>
+  </head>
+  <body>
+    <h1 id="heading">Next Home</h1>
+
+    <div id="cap">
+      <h1 id="sam">Mat Home</h1>
+    </div>
+  </body>
+  <script defer type="module">
+    (async () => {
+      let resap = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "GET",
+      });
+      let map = await resap.json();
+
+      document.getElementById("sam").innerText = map[0].id;
+    })();
+  </script>
+</html>
