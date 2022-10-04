@@ -3,7 +3,7 @@ import { visible } from "./core/visible.js";
 import { Entry } from "./interfaces";
 import { purgeCache } from "./utils/cache.js";
 
-async function sleeq(opts: Entry) {
+function sleeq(opts: Entry) {
   switch (opts.mode) {
     case "scan":
       return scan(opts.log, opts.cacheTime, opts.purgeCacheOnStartup);
