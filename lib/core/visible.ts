@@ -20,7 +20,7 @@ async function visible(
           return;
         }
         supportCacheStorage();
-        if (await checkIfInCache(url)) {
+        if (checkIfInCache(url)) {
           observer.unobserve(entry.target);
           loggerOn
             ? console.log(`${url} already in Cache, Status:Unobserved`)
@@ -28,7 +28,7 @@ async function visible(
           return;
         }
         if (entry.isIntersecting) {
-          addToCache([url], loggerOn, cacheTime);
+          await addToCache([url], loggerOn, cacheTime);
           observer.unobserve(entry.target);
         }
       }
