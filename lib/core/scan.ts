@@ -11,10 +11,10 @@ async function scan(
 
   for (let index = 0, array = getLinks(); index < array.length; index++) {
     const element = String(array[index]);
-    if (await checkIfInCache(element)) {
+    if (checkIfInCache(element)) {
       loggerOn ? console.log(`${element} already in Cache`) : "";
     } else {
-      addToCache([element], loggerOn, cacheTime);
+      await addToCache([element], loggerOn, cacheTime);
     }
   }
 }
