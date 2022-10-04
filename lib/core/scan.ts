@@ -6,7 +6,7 @@ async function scan(
   cacheTime: number,
   purgeCacheOnStartup: boolean
 ) {
-  purgeCacheOnStartup ? purgeCache() : "";
+  purgeCacheOnStartup ? await purgeCache(loggerOn) : "";
   loggerOn ? console.log("Scanning Current Page DOM for Links") : "";
 
   for (let index = 0, array = getLinks(); index < array.length; index++) {

@@ -11,7 +11,7 @@ export async function addToCache(
     cache
       .add(urlToCache)
       .then(() => {
-        schedule(urlToCache, cacheTime);
+        schedule(urlToCache, cacheTime, log);
         log ? console.log(`Cached ${urlToCache}`) : "";
       })
       .catch((err) => {
@@ -49,8 +49,9 @@ export async function getFromCache(url: string) {
   return check;
 }
 
-export async function purgeCache() {
+export async function purgeCache(loggerOn: boolean) {
   const cache = await caches.open(window.origin);
   const keys = await cache.keys();
-  Promise.all(keys.map((key) => removeFromCache(key)));
+  await Promise.all(keys.map((key) => removeFromCache(key)));
+  loggerOn ? console.log("Cache has been Purged") : "";
 }

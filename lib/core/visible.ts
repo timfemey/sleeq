@@ -2,12 +2,12 @@ import { addToCache, checkIfInCache, purgeCache } from "../utils/cache.js";
 import { getLinks } from "../utils/dom.js";
 import { supportCacheStorage, supportIntersection } from "../utils/support.js";
 
-function visible(
+async function visible(
   loggerOn: boolean,
   cacheTime: number,
   purgeCacheOnStartup: boolean
 ) {
-  purgeCacheOnStartup ? purgeCache() : "";
+  purgeCacheOnStartup ? await purgeCache(loggerOn) : "";
   loggerOn ? console.log("Visible Mode Cache Startup Successful") : "";
   supportIntersection();
   const io = new IntersectionObserver(
