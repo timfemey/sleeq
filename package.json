@@ -1,7 +1,12 @@
 {
   "name": "sleeq",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
+  "author": {
+    "name": "Ishola Obafemi",
+    "url": "https://github.com/timfemey"
+  },
+  "license": "ISC",
   "type": "module",
   "scripts": {
     "dev": "vite build --watch",
